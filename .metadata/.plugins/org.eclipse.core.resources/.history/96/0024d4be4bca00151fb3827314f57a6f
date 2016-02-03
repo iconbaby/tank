@@ -31,22 +31,12 @@ public class TankWar extends Frame{
 			}
 		});
 		setVisible(true);
-		new Thread(new PaintThread()).start();
 		
 	}
 	private class PaintThread implements Runnable{
 
 		public void run() {
-			
-			while(true) {
-				repaint();
-				try {
-					Thread.sleep(100);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-				
-			}
+			repaint();
 			
 		}
 		

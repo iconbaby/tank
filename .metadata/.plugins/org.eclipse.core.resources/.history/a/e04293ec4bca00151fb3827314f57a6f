@@ -37,14 +37,9 @@ public class TankWar extends Frame{
 	private class PaintThread implements Runnable{
 
 		public void run() {
-			
+			repaint();
 			while(true) {
-				repaint();
-				try {
-					Thread.sleep(100);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
+				this.sleep(50)
 				
 			}
 			
