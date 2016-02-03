@@ -10,7 +10,6 @@ public class TankWar extends Frame{
 	public void LanuchFrame() {
 		this.setBounds(400,300,800,600);
 		setVisible(true);
-		this.setResizable(false);
 		this.addWindowListener(new WindowAdapter() {
 
 			@Override
@@ -21,4 +20,6 @@ public class TankWar extends Frame{
 			
 		});
 	}
+	
+
 }
