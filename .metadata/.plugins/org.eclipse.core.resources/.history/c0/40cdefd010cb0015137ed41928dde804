@@ -104,23 +104,23 @@ public class Tank {
 		locateDirection();
 	}
 
-	public void keyReleased(KeyEvent e) {
+	public void keyReleased() {
 		int key = e.getKeyCode();
 		switch(key) {
 		case KeyEvent.VK_RIGHT: 
-			bR = false;
+			bR = true;
 			break;
 		
 		case KeyEvent.VK_LEFT:
-			bL = false;
+			bL = true;
 			break;
 		
 		case KeyEvent.VK_UP: 
-			bU = false;
+			bU = true;
 			break;
 		
 		case KeyEvent.VK_DOWN: 
-			bD = false;
+			bD = true;
 			break;
 		}
 		locateDirection();

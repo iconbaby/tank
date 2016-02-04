@@ -78,7 +78,7 @@ public class Tank {
 		else if(bU && !bL && !bD && bR) dir = Direction.RU;
 		else if(!bU && bL && bD && !bR) dir = Direction.LD;
 		else if(!bU && !bL && bD && bR) dir = Direction.RD;
-		else if(!bU && !bL && !bD && !bR) dir = Direction.STOP;
+		//else if(!bU && !bL && !bD && !bR) dir = Direction.STOP;
 	}
 	
 	public void keyPressed(KeyEvent e) {

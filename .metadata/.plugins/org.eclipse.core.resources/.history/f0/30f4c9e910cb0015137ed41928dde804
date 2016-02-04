@@ -112,15 +112,15 @@ public class Tank {
 			break;
 		
 		case KeyEvent.VK_LEFT:
-			bL = false;
+			bL = flase;
 			break;
 		
 		case KeyEvent.VK_UP: 
-			bU = false;
+			bU = flase;
 			break;
 		
 		case KeyEvent.VK_DOWN: 
-			bD = false;
+			bD = flase;
 			break;
 		}
 		locateDirection();

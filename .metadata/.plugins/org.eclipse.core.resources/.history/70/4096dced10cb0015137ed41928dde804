@@ -58,7 +58,7 @@ public class TankWar extends Frame{
 			while (true) {
 				repaint();
 				try {
-					Thread.sleep(50);
+					Thread.sleep(100);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
@@ -72,7 +72,7 @@ public class TankWar extends Frame{
 		
 		
 		public void keyReleased(KeyEvent e) {
-			mytank.keyReleased(e);
+			mytank.keyReleased();
 		}
 
 		public void keyPressed(KeyEvent e) {
