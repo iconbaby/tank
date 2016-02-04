@@ -34,7 +34,7 @@ public class Tank {
 	public void draw(Graphics g) {
 		Color c = g.getColor();
 		g.setColor(Color.RED);
-		g.fillOval(x,y,WIDTH,HEIGHT);
+		g.fillOval(x,y,30,30);
 		g.setColor(c);
 		move();
 	}
@@ -143,9 +143,6 @@ public class Tank {
 		
 	}
 		public Missile fire() {
-			int x = this.x + Tank.WIDTH/2 - Missile.WIDTH/2;
-			int y = this.y + Tank.HEIGHT/2 - Missile.HEIGHT/2;
-				
 			Missile m = new Missile(x,y,dir);
 			return m;
 			

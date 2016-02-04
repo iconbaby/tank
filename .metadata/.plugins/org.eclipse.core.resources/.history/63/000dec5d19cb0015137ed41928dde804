@@ -15,7 +15,6 @@ public class TankWar extends Frame{
 	Image offScreenImage = null;
 	
 	public void paint(Graphics g) {
-		if(m!=null) m.draw(g);
 		mytank.draw(g);
 		
 		
@@ -63,7 +62,7 @@ public class TankWar extends Frame{
 			while (true) {
 				repaint();
 				try {
-					Thread.sleep(20);
+					Thread.sleep(50);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
