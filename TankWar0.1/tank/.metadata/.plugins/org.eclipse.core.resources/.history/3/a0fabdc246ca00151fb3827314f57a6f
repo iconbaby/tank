@@ -1,0 +1,30 @@
+import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+public class TankWar extends Frame{
+	@Override
+	public void paint(Graphics g) {
+		Color c = g.getColor();
+		g.setColor(Color.RED);
+		
+	}
+
+	public static void main(String[] args) {
+		 new TankWar().LanuchFrame();
+		
+	}
+	
+	public void LanuchFrame() {
+		this.setBounds(400,300,800,600);
+		this.setResizable(false);
+		this.setTitle("TankWar");
+		this.addWindowListener(new WindowAdapter() {
+
+			@Override
+			public void windowClosing(WindowEvent e) {
+				System.exit(0);
+			}
+		});
+		setVisible(true);
+	}
+}
