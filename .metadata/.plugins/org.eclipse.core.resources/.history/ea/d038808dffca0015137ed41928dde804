@@ -71,7 +71,7 @@ public class TankWar extends Frame{
 
 		@Override
 		public void keyPressed(KeyEvent e) {
-			mytank.keyPressed(e);
+		mytank.keyPressed(e);
 		}
 	}
 }

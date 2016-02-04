@@ -69,9 +69,8 @@ public class TankWar extends Frame{
 	}
 	private class KeyMontor extends KeyAdapter {
 
-		@Override
 		public void keyPressed(KeyEvent e) {
-			mytank.keyPressed(e);
+			int key = e.getKeyCode();
 		}
 	}
 }

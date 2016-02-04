@@ -13,7 +13,7 @@ public class TankWar extends Frame{
 	Image offScreenImage = null;
 	
 	public void paint(Graphics g) {
-		mytank.draw(g);
+		mytank.draw();
 		
 	}
 	public void update(Graphics g) {
@@ -69,9 +69,28 @@ public class TankWar extends Frame{
 	}
 	private class KeyMontor extends KeyAdapter {
 
-		@Override
 		public void keyPressed(KeyEvent e) {
-			mytank.keyPressed(e);
+			int key = e.getKeyCode();
+			switch(key) {
+			case KeyEvent.VK_RIGHT:{  
+				x += 5;
+				break;
+			}
+			case KeyEvent.VK_LEFT:{
+				x -= 5;
+				break;
+			}
+			case KeyEvent.VK_UP: {
+				y -= 5;
+				break;
+			}
+			case KeyEvent.VK_DOWN: {
+				y += 5;
+				break;
+			}
+			
+			}
+				
 		}
 	}
 }
