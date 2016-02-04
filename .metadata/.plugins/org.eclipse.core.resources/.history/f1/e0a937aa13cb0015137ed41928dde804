@@ -9,7 +9,7 @@ public class Tank {
 	private static final int  Y_SPEED = 5;
 	private boolean bL =false, bU = false, bD = false, bR = false;
 	
-	public enum Direction {R,L,U,D,RU,RD,LU,LD,STOP};
+	private enum Direction {R,L,U,D,RU,RD,LU,LD,STOP};
 	
 	private Direction dir = Direction.STOP;
 	

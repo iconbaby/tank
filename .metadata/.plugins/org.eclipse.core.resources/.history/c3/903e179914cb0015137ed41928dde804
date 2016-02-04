@@ -10,12 +10,11 @@ public class TankWar extends Frame{
 	
 	Tank mytank = new Tank(50,50);
 	
-	Missile m = new Missile(50,50,Tank.Direction.R);
+	Missile m = new Missiel(50,50,R);
 	Image offScreenImage = null;
 	
 	public void paint(Graphics g) {
 		mytank.draw(g);
-		m.draw(g);
 		
 		
 	}

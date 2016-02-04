@@ -1,0 +1,6 @@
+
+public class Missile {
+	int x,y;
+	Tank.Direction dir;
+	public Missile(int x,int y,Tank.Direction dir) {}
+}

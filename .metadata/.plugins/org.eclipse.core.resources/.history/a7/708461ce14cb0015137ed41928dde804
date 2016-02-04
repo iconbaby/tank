@@ -15,7 +15,7 @@ public class TankWar extends Frame{
 	
 	public void paint(Graphics g) {
 		mytank.draw(g);
-		m.draw(g);
+		M.draw(g);
 		
 		
 	}
