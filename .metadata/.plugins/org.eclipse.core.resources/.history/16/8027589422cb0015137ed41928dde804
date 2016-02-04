@@ -38,7 +38,7 @@ public class Tank {
 		g.setColor(Color.RED);
 		g.fillOval(x,y,WIDTH,HEIGHT);
 		g.setColor(c);
-		
+		Direction ptDir = this.dir;
 		switch (ptDir) {
 		case U:
 			g.drawLine(x + Tank.WIDTH/2,y +  HEIGHT/2, x + Tank.WIDTH/2,y );
@@ -119,10 +119,7 @@ public class Tank {
 		case STOP:
 
 		}
-		if(dir != Direction.STOP) {
-			this.ptDir = this.dir;
-			
-		}
+
 	}
 	void locateDirection() {
 		if(bU && !bL && !bD && !bR) dir = Direction.U;

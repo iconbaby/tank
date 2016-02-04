@@ -6,6 +6,8 @@ public class Tank {
 	
 	TankWar tc =null;
 	
+	public Direction ptdri = D;
+	
 	public static final int WIDTH = 30;
 	
 	public static final int HEIGHT = 30;
@@ -19,8 +21,6 @@ public class Tank {
 	public enum Direction {R,L,U,D,RU,RD,LU,LD,STOP};
 	
 	private Direction dir = Direction.STOP;
-	
-	private Direction ptDir = Direction.D;
 	
 	public Tank(int x,int y) {
 		this.x = x;
@@ -38,43 +38,6 @@ public class Tank {
 		g.setColor(Color.RED);
 		g.fillOval(x,y,WIDTH,HEIGHT);
 		g.setColor(c);
-		
-		switch (ptDir) {
-		case U:
-			g.drawLine(x + Tank.WIDTH/2,y +  HEIGHT/2, x + Tank.WIDTH/2,y );
-			break;
-
-		case D:
-			g.drawLine(x + Tank.WIDTH/2,y +  HEIGHT/2, x + Tank.WIDTH/2, y + Tank.HEIGHT);
-			break;
-
-		case L:
-			g.drawLine(x + Tank.WIDTH/2,y +  HEIGHT/2, x, y + Tank.HEIGHT/2);
-			break;
-
-		case R:
-			g.drawLine(x + Tank.WIDTH/2,y +  HEIGHT/2, x + Tank.WIDTH, y + Tank.HEIGHT/2);
-			break;
-
-		case LU:
-			g.drawLine(x + Tank.WIDTH/2,y +  HEIGHT/2, x, y);;
-			break;
-
-		case RU:
-			g.drawLine(x + Tank.WIDTH/2,y +  HEIGHT/2, x + Tank.WIDTH, y);
-			break;
-
-		case LD:
-			g.drawLine(x + Tank.WIDTH/2,y +  HEIGHT/2, x, y + Tank.HEIGHT);
-			break;
-
-		case RD:
-			g.drawLine(x + Tank.WIDTH/2,y +  HEIGHT/2, x + Tank.WIDTH, y + Tank.HEIGHT);
-			break;
-
-		case STOP:
-
-		}
 		move();
 	}
 	
@@ -119,10 +82,7 @@ public class Tank {
 		case STOP:
 
 		}
-		if(dir != Direction.STOP) {
-			this.ptDir = this.dir;
-			
-		}
+
 	}
 	void locateDirection() {
 		if(bU && !bL && !bD && !bR) dir = Direction.U;
@@ -188,7 +148,7 @@ public class Tank {
 			int x = this.x + Tank.WIDTH/2 - Missile.WIDTH/2;
 			int y = this.y + Tank.HEIGHT/2 - Missile.HEIGHT/2;
 				
-			Missile m = new Missile(x,y,ptDir);
+			Missile m = new Missile(x,y,dir);
 			return m;
 			
 			
