@@ -3,19 +3,29 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.ArrayList;
+import java.util.List;
 public class TankWar extends Frame{
 	
 	public static final int GAME_WIDTH = 800;
+	
 	public static final int GAME_HEIGHT = 600;
 	
 	Tank mytank = new Tank(50,50,this);
 	
-	Missile m = null;
+	List<Missile> missiles = new ArrayList<Missile>();
+	
 	
 	Image offScreenImage = null;
 	
 	public void paint(Graphics g) {
-		if(m!=null) m.draw(g);
+		g.drawString("missiles count:" + missiles.size(),10,50);
+		for(int i = 0;i<missiles.size();i++) {
+			Missile m = missiles.get(i);
+			if(!m.isLive()) missiles.remove(m); 
+			else m.draw(g);
+			
+		}
 		mytank.draw(g);
 		
 		
@@ -37,7 +47,6 @@ public class TankWar extends Frame{
 
 	public static void main(String[] args) {
 		 new TankWar().LanuchFrame();
-		
 	}
 	
 	public void LanuchFrame() {
