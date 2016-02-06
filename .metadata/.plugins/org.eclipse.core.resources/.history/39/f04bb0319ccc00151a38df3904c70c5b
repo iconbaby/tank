@@ -13,7 +13,7 @@ public class TankWar extends Frame{
 	
 	Tank mytank = new Tank(50,50,true,this);
 	
-	Tank enemyTank = new Tank(100,100,false,this);
+	Tank enemyTank = new Tank(10,10,false,this);
 	
 	List<Missile> missiles = new ArrayList<Missile>();
 	

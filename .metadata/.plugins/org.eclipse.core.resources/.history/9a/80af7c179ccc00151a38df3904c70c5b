@@ -11,9 +11,7 @@ public class TankWar extends Frame{
 	
 	public static final int GAME_HEIGHT = 600;
 	
-	Tank mytank = new Tank(50,50,true,this);
-	
-	Tank enemyTank = new Tank(100,100,false,this);
+	Tank mytank = new Tank(50,50,ture,this);
 	
 	List<Missile> missiles = new ArrayList<Missile>();
 	
@@ -29,7 +27,7 @@ public class TankWar extends Frame{
 			
 		}
 		mytank.draw(g);
-		enemyTank.draw(g);
+		
 		
 		
 	}

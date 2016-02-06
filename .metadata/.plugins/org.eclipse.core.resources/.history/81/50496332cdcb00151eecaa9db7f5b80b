@@ -6,8 +6,6 @@ public class Tank {
 	
 	TankWar tc =null;
 	
-	private boolean good;
-	
 	public static final int WIDTH = 30;
 	
 	public static final int HEIGHT = 30;
@@ -29,17 +27,15 @@ public class Tank {
 		this.y = y;
 	}
 	
-	public Tank(int x, int y,boolean good, TankWar tc) {
+	public Tank(int x, int y, TankWar tc) {
 		this(x,y);
-		this.good = good;
 		this.tc = tc;
 		
 	}
 	
 	public void draw(Graphics g) {
 		Color c = g.getColor();
-		if(good)g.setColor(Color.RED);
-		else g.setColor(Color.BLUE);
+		g.setColor(Color.RED);
 		g.fillOval(x,y,WIDTH,HEIGHT);
 		g.setColor(c);
 		
@@ -121,7 +117,6 @@ public class Tank {
 			break;
 
 		case STOP:
-			break;
 
 		}
 		if(dir != Direction.STOP) {
@@ -130,8 +125,8 @@ public class Tank {
 		}
 		if(x < 0) x = 0;
 		if(y < 0) y = 20;
-		if(x + Tank.WIDTH> TankWar.GAME_WIDTH) x = TankWar.GAME_WIDTH - Tank.WIDTH;
-		if(y  + Tank.HEIGHT> TankWar.GAME_HEIGHT) y = TankWar.GAME_HEIGHT - Tank.HEIGHT;
+		if(x > TankWar.GAME_WIDTH) x = TankWar.WIDTH + Tank.WIDTH;
+		if(y > TankWar.GAME_HEIGHT) y = TankWar.HEIGHT + Tank.HEIGHT;
 	}
 	void locateDirection() {
 		if(bU && !bL && !bD && !bR) dir = Direction.U;

@@ -31,14 +31,14 @@ public class Tank {
 	
 	public Tank(int x, int y,boolean good, TankWar tc) {
 		this(x,y);
-		this.good = good;
+		
 		this.tc = tc;
 		
 	}
 	
 	public void draw(Graphics g) {
 		Color c = g.getColor();
-		if(good)g.setColor(Color.RED);
+		if(true)g.setColor(Color.RED);
 		else g.setColor(Color.BLUE);
 		g.fillOval(x,y,WIDTH,HEIGHT);
 		g.setColor(c);

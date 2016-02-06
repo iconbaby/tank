@@ -31,7 +31,7 @@ public class Tank {
 	
 	public Tank(int x, int y,boolean good, TankWar tc) {
 		this(x,y);
-		this.good = good;
+		
 		this.tc = tc;
 		
 	}
