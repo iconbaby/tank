@@ -3,21 +3,35 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.ArrayList;
+import java.util.List;
 public class TankWar extends Frame{
 	
 	public static final int GAME_WIDTH = 800;
+	
 	public static final int GAME_HEIGHT = 600;
 	
-	int x = 50, y = 50;
+	Tank mytank = new Tank(50,50,true,this);
+	
+	Tank enemyTank = new Tank(100,100,false,this);
+	
+	List<Missile> missiles = new ArrayList<Missile>();
+	
 	
 	Image offScreenImage = null;
 	
 	public void paint(Graphics g) {
-		Color c = g.getColor();
-		g.setColor(Color.RED);
-		g.fillOval(x,y,30,30);
-		g.setColor(c);
-		y += 5;
+		g.drawString("missiles count:" + missiles.size(),10,50);
+		for(int i = 0;i<missiles.size();i++) {
+			Missile m = missiles.get(i);
+			if(!m.isLive()) missiles.remove(m); 
+			else m.draw(g);
+			
+		}
+		mytank.draw(g);
+		enemyTank.draw(g);
+		
+		
 	}
 	public void update(Graphics g) {
 		if(offScreenImage == null) {
@@ -35,7 +49,6 @@ public class TankWar extends Frame{
 
 	public static void main(String[] args) {
 		 new TankWar().LanuchFrame();
-		
 	}
 	
 	public void LanuchFrame() {
@@ -61,7 +74,7 @@ public class TankWar extends Frame{
 			while (true) {
 				repaint();
 				try {
-					Thread.sleep(100);
+					Thread.sleep(20);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
@@ -72,14 +85,14 @@ public class TankWar extends Frame{
 	}
 	private class KeyMontor extends KeyAdapter {
 
-		public void keyPressed(KeyEvent e) {
-			int key = e.getKeyCode();
-			if(key == KeyEvent.VK_RIGHT){
-				x += 5;
-				
-			}
+		
+		
+		public void keyReleased(KeyEvent e) {
+			mytank.keyReleased(e);
 		}
-		
-		
+
+		public void keyPressed(KeyEvent e) {
+			mytank.keyPressed(e);
+		}
 	}
 }

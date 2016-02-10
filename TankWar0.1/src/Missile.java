@@ -1,5 +1,6 @@
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Rectangle;
 
 
 public class Missile {
@@ -12,6 +13,8 @@ public class Missile {
 	public static final int Y_SPEED = 10;
 	
 	Tank.Direction dir;
+	
+	TankWar tc;
 	
 	private boolean live = true;
 	
@@ -31,7 +34,19 @@ public class Missile {
 		
 	}
 	
+	public Missile(int x,int y,Tank.Direction dir,TankWar tc) {
+		
+		this(x, y,dir);
+		this.tc = tc;
+	}
+	
 	public void draw(Graphics g) {
+		if(!live) {
+			tc.missiles.remove(this);
+			return;
+			
+		}
+		
 		Color c = g.getColor();
 		g.setColor(Color.black);
 		g.fillOval(x, y, WIDTH,HEIGHT);
@@ -40,6 +55,8 @@ public class Missile {
 	}
 	
 	public void move() {
+		
+		
 		switch (dir) {
 		case U:
 			y -= Y_SPEED;
@@ -80,8 +97,20 @@ public class Missile {
 		
 		if(x < 0|| y < 0|| x > TankWar.GAME_WIDTH|| y > TankWar.GAME_HEIGHT) {
 			live = false;
-			
 		}
 		
+	}
+	public boolean hitTank(Tank t) {
+		
+		if(this.getRect().intersects(t.getRect()) && t.isLive()){
+			t.setLive(false);
+			this.live = false;
+			return true;
+		}
+		return false;
+	}
+	public Rectangle getRect() {
+		
+		return new Rectangle(x,y,WIDTH,HEIGHT);
 	}
 }

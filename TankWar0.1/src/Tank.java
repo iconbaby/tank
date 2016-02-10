@@ -8,6 +8,15 @@ public class Tank {
 	
 	private boolean good;
 	
+	private boolean live = true;
+	
+	public boolean isLive() {
+		return live;
+	}
+
+	public void setLive(boolean live) {
+		this.live = live;
+	}
 	public static final int WIDTH = 30;
 	
 	public static final int HEIGHT = 30;
@@ -37,6 +46,8 @@ public class Tank {
 	}
 	
 	public void draw(Graphics g) {
+		if(!live) return;
+		
 		Color c = g.getColor();
 		if(good)g.setColor(Color.RED);
 		else g.setColor(Color.BLUE);
@@ -203,5 +214,9 @@ public class Tank {
 			return m;
 			
 			
+		}
+		public Rectangle getRect() {
+			
+			return new Rectangle(x,y,WIDTH,HEIGHT);
 		}
 }
